@@ -7,7 +7,7 @@ def main():
 
   in_addr = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
   in_addr.connect((input("Enter a Website : "),443))
-  print("내부IP 주소: ",in_addr.getsockname()[0])
+  print("local 내부IP 주소: ",in_addr.getsockname()[0])
   
   
   req = requests.get("http://ipconfig.kr",timeout = 10)
@@ -18,7 +18,9 @@ def main():
      raise RuntimeError("외부 IP 주소를 찾지 못했습니다.")
      
   out_addr = match.group(1)
-  print("외부 IP 주소 : ",out_addr)
+  print("public 외부 IP 주소 : ",out_addr)
+  out_addr = in_addr.getpeername()[0]
+  print("상대 서버 IP 주소 : ",out_addr)
   
   
   
