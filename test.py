@@ -1,6 +1,3 @@
-print("hello python thanks for language model")
-
-
 import requests
 import socket
 import re
@@ -25,5 +22,6 @@ def main():
  print("외부 IP 주소 : ", out_addr)
     
 if __name__ == "__main__":
+    print("hello python thanks for language model")
     main()
      
